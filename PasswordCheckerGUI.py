@@ -12,7 +12,7 @@ def request_api_data(query_char):
 
 
 def get_password_leaks_count(hashes, hash_to_check):
-	hashes = (line.split(':') for line in hashes.text.splitlines(	))
+	hashes = (line.split(':') for line in hashes.text.splitlines())
 	for h, count in hashes:
 		if h == hash_to_check:
 			return count
@@ -27,7 +27,6 @@ def pwned_api_check(password):
 
 
 def main():
-	global result
 	password = entry_password.get()
 	count = pwned_api_check(password)
 	if count:
@@ -40,10 +39,10 @@ def main():
 result = ''
 
 window = Tk()
-window.title('Password Checker')
+window.title('Password Checker v.0.5')
 window.geometry("300x115")
 
-searched_city = Label(text='Enter password for check:')
+searched_city = Label(text='Enter a password to check:')
 searched_city.pack()
 
 default_password = StringVar(value='password123')
